@@ -1,5 +1,6 @@
 import { Space, Tag, Tooltip } from 'antd'
 import React from 'react'
+import { isMobile } from 'react-device-detect'
 
 const tagData = {
     C: {
@@ -21,12 +22,12 @@ const tagData = {
 }
 
 const createPermutationView = (permutation, status) => (
-    <Space style={status === 'Current' ? { opacity: 1 } : { opacity: 0.2 }}>
-        <div style={{ minWidth: '60px' }}>{status}</div>
+    <Space style={status === 'Current' ? { opacity: 1 } : { opacity: 0.2 }} size={isMobile ? '2px' : 'small'}>
+        {!isMobile ? <div style={{ minWidth: '60px' }}>{status}</div> : false}
         {permutation.map(item => {
             return (
                 <Tooltip title={tagData[item].hints}>
-                    <Tag style={{ minWidth: '30px', textAlign: "center" }} color={tagData[item].color}>{item}</Tag>
+                    <Tag style={{ minWidth: isMobile ? '0' : '30px', textAlign: "center" }} color={tagData[item].color}>{item}</Tag>
                 </Tooltip>
             )
         })}
@@ -43,5 +44,7 @@ function PermutationView({ permutations }) {
         </Space>
     )
 }
+
+
 
 export default PermutationView

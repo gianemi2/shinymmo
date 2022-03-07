@@ -6,11 +6,7 @@ import PermutationsTable from './PermutationsTable/PermutationsTable';
 import variables from './Data/variables';
 import logo from './logo.png';
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
-import './App.css';
-
-console.log(logo);
-
-const { Header, Footer, Content } = Layout;
+import { isMobile } from 'react-device-detect';
 
 function App() {
     const [permutations, setPermutations] = useState([])
@@ -42,7 +38,7 @@ function App() {
     return (
         <div style={body}>
             <div className='Header'>
-                <img src={logo} />
+                <img src={logo} style={logoStyle} />
             </div>
             <div className='Content' style={content}>
                 <Customizer
@@ -86,18 +82,22 @@ function App() {
     )
 }
 
+const logoStyle = {
+    maxWidth: 200
+}
+
 const body = {
     background: 'rgb(93,188,142)',
     background: 'linear-gradient(180deg, #5dbc8e 0%, #9dd29f 50%, rgba(93,188,142,1) 100%)',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
-    minHeight: '100vh'
+    alignItems: !isMobile ? 'center' : 'initial',
+    minHeight: '100vh',
+    overflow: 'hidden'
 }
 
 const content = {
-    width: 700,
-    maxWidth: '100%'
+    padding: 15
 }
 
 const footer = {

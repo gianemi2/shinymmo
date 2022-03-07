@@ -1,5 +1,6 @@
 import React from 'react'
 import { Select, InputNumber, Space, Form } from 'antd'
+import { isMobile } from 'react-device-detect';
 const { Option } = Select
 
 function Customizer(props) {
@@ -9,8 +10,8 @@ function Customizer(props) {
 
     return (
         <Form layout="vertical">
-            <Space>
-                <Form.Item label="Pokemon in first horde: ">
+            <Space direction={isMobile ? 'vertical' : 'horizontal'}>
+                <Form.Item label="Pokemon in first horde: " style={{ marginBottom: isMobile ? 0 : 24 }}>
                     <Select style={{ width: 200 }} defaultValue={firstHordeCount} onChange={onFirstHordeCountChange}>
                         <Option value="8">8</Option>
                         <Option value="9">9</Option>

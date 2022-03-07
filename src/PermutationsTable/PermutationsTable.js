@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Table, Tag } from 'antd'
 import PermutationView from './PermutationView';
 
 const defaultPermutations = { previous: [], current: [], next: [] };
