@@ -1,0 +1,47 @@
+import { Space, Tag, Tooltip } from 'antd'
+import React from 'react'
+
+const tagData = {
+    C: {
+        color: 'lime',
+        hints: 'Catch it'
+    },
+    K1: {
+        color: 'gold',
+        hints: "Defeat it, if you have more K1 in this row defeat them in the same battle."
+    },
+    K2: {
+        color: 'volcano',
+        hints: "Defeat it, if you have more K2 in this row defeat them in the same battle."
+    },
+    K3: {
+        color: 'magenta',
+        hints: "Defeat it, if you have more K3 in this row defeat them in the same battle."
+    }
+}
+
+const createPermutationView = (permutation, status) => (
+    <Space style={status === 'Current' ? { opacity: 1 } : { opacity: 0.2 }}>
+        <div style={{ minWidth: '60px' }}>{status}</div>
+        {permutation.map(item => {
+            return (
+                <Tooltip title={tagData[item].hints}>
+                    <Tag style={{ minWidth: '30px', textAlign: "center" }} color={tagData[item].color}>{item}</Tag>
+                </Tooltip>
+            )
+        })}
+    </Space>
+)
+
+function PermutationView({ permutations }) {
+    const { previous, current, next } = permutations
+    return (
+        <Space direction='vertical'>
+            {previous.length ? createPermutationView(previous, 'Previous') : false}
+            {current.length ? createPermutationView(current, 'Current') : false}
+            {next.length ? createPermutationView(next, 'Next') : false}
+        </Space>
+    )
+}
+
+export default PermutationView
