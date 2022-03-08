@@ -15,10 +15,10 @@ const Ads = () => {
     }, [adActive])
 
     return (
-        <ins className="adsbygoogle"
+        adActive ? <ins className="adsbygoogle"
             style={{ display: "block", width: "350px", height: "90px" }}
             data-ad-client="ca-pub-8441432984375470"
-            data-ad-slot="2777106929"></ins>
+            data-ad-slot="2777106929"></ins> : false
     );
 
 }
