@@ -9,8 +9,7 @@ function Header() {
         if (adActive) {
             try {
                 console.log('Loading ads by google')
-                var adsbygoogle = (window.adsbygoogle || [])
-                adsbygoogle.push({})
+                window.adsbygoogle.push({})
             } catch (error) {
                 console.log('error with ads');
                 console.log(error);
