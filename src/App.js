@@ -10,20 +10,6 @@ function App() {
     const [permutations, setPermutations] = useState([])
     const [firstHordeCount, setFirstHordeCount] = useLocalStorage('firstHordeCount', 8)
     const [currentPermutationIndex, setCurrentPermutationIndex] = useLocalStorage('currentPermutationIndex', 0)
-    const [adActive, setAdActive] = useLocalStorage('adActive', false)
-
-    useEffect(() => {
-        if (adActive) {
-            try {
-                var adsbygoogle = (window.adsbygoogle || []).pauseAdRequests = 0;
-            } catch (error) {
-                console.log('Error with ads:');
-                console.log(error);
-            }
-        } else {
-            var adsbygoogle = (window.adsbygoogle || []).pauseAdRequests = 1;
-        }
-    }, [adActive])
 
     useEffect(() => {
         const { permutations } = variables.find(({ count }) => count == firstHordeCount);

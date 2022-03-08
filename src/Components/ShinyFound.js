@@ -22,6 +22,7 @@ function ShinyFound() {
         setVisible(false)
         throwConfetti(false)
         setAdActive(true)
+        setTimeout(() => window.location.reload(), 5000)
     }
 
     const throwConfetti = (showAds = true) => {
