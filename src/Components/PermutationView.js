@@ -24,9 +24,9 @@ const tagData = {
 const createPermutationView = (permutation, status) => (
     <Space style={status === 'Current' ? { opacity: 1 } : { opacity: 0.2 }} size={isMobile ? '2px' : 'small'}>
         {!isMobile ? <div style={{ minWidth: '60px' }}>{status}</div> : false}
-        {permutation.map(item => {
+        {permutation.map((item, index) => {
             return (
-                <Tooltip title={tagData[item].hints}>
+                <Tooltip key={`${item}-${index}`} title={tagData[item].hints}>
                     <Tag style={{ minWidth: isMobile ? '0' : '30px', textAlign: "center" }} color={tagData[item].color}>{item}</Tag>
                 </Tooltip>
             )
@@ -37,11 +37,13 @@ const createPermutationView = (permutation, status) => (
 function PermutationView({ permutations }) {
     const { previous, current, next } = permutations
     return (
-        <Space direction='vertical'>
-            {previous.length ? createPermutationView(previous, 'Previous') : false}
-            {current.length ? createPermutationView(current, 'Current') : false}
-            {next.length ? createPermutationView(next, 'Next') : false}
-        </Space>
+        <div style={{ marginBottom: 25 }}>
+            <Space direction='vertical'>
+                {previous.length ? createPermutationView(previous, 'Previous') : false}
+                {current.length ? createPermutationView(current, 'Current') : false}
+                {next.length ? createPermutationView(next, 'Next') : false}
+            </Space>
+        </div>
     )
 }
 

@@ -6,8 +6,6 @@ const { Option } = Select
 function Customizer(props) {
     const { onFirstHordeCountChange, onCurrentPermutationChange, firstHordeCount, currentPermutation, maxPermutationsCount } = props;
 
-    console.log(maxPermutationsCount)
-
     return (
         <Form layout="vertical">
             <Space direction={isMobile ? 'vertical' : 'horizontal'}>

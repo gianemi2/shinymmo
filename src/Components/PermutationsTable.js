@@ -5,7 +5,6 @@ const defaultPermutations = { previous: [], current: [], next: [] };
 function PermutationsTable(props) {
     const { data, count } = props;
     const [filteredPermutations, setFilteredPermutations] = useState(defaultPermutations)
-    console.log(data)
     useEffect(() => {
         if (!data) return;
         setFilteredPermutations(defaultPermutations)
