@@ -54,7 +54,7 @@ function ShinyFound() {
         <>
             <Modal
                 visible={visible}
-                title="YAYYYY! You've found you're Shiny thanks to this method! ✨"
+                title="YAYYYY! You've found your Shiny thanks to this method! ✨"
                 footer={[
                     <Button key="never" onClick={handleNoMoreAds} danger>NEVER</Button>,
                     <Button key="notNow" onClick={handleNotNow} type="dashed" danger>Not now</Button>,
