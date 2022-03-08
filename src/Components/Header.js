@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import logo from '../logo.png';
 
 function Header() {
+    useEffect(() => {
+        try {
+            var adsbygoogle = (window.adsbygoogle || []).push({})
+        } catch (error) {
+            console.log('error with ads');
+            console.log(error);
+        }
+    }, [])
     return (
         <div className='Header'>
             <ins className="adsbygoogle"
-                style={{ display: "block" }}
+                style={{ display: 'block' }}
                 data-ad-client="ca-pub-8441432984375470"
                 data-ad-slot="2777106929"
                 data-ad-format="auto"

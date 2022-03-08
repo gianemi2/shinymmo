@@ -15,12 +15,13 @@ function App() {
     useEffect(() => {
         if (adActive) {
             try {
-                window.adsbygoogle = window.adsbygoogle || [];
-                window.adsbygoogle.push({});
+                var adsbygoogle = (window.adsbygoogle || []).pauseAdRequests = 0;
             } catch (error) {
                 console.log('Error with ads:');
                 console.log(error);
             }
+        } else {
+            var adsbygoogle = (window.adsbygoogle || []).pauseAdRequests = 1;
         }
     }, [adActive])
 
