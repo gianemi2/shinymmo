@@ -5,7 +5,7 @@ function Header() {
     return (
         <div className='Header'>
             <ins className="adsbygoogle"
-                style={{ display: "block", marginTop: 'auto' }}
+                style={{ display: "block" }}
                 data-ad-client="ca-pub-8441432984375470"
                 data-ad-slot="2777106929"
                 data-ad-format="auto"

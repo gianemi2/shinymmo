@@ -25,7 +25,7 @@ function ShinyFound() {
     }
 
     const throwConfetti = (showAds = true) => {
-        for (let index = 0; index < 2; index++) {
+        for (let index = 0; index < 10; index++) {
             confetti({
                 particleCount: 100,
                 startVelocity: 30,
