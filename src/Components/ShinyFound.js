@@ -37,7 +37,7 @@ function ShinyFound() {
                 }
             });
         }
-        if (showAds && !adDenied) {
+        if (showAds && !adDenied && !adActive) {
             handleAskForAds()
         }
     }
