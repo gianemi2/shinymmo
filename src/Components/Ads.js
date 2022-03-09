@@ -1,24 +1,19 @@
 import React, { useEffect } from 'react';
+import { Adsense } from '@ctrl/react-adsense';
 import useLocalStorage from '../Hooks/useLocalStorage';
 
 const Ads = () => {
     const [adActive] = useLocalStorage('adActive', false)
 
-    useEffect(() => {
-        try {
-            console.log(`adactive: ${adActive}`);
-            (window.adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (error) {
-            console.log('error with ads');
-            console.log(error);
-        }
-    }, [adActive])
-
     return (
-        adActive ? <ins className="adsbygoogle"
-            style={{ display: "block", width: "350px", height: "90px" }}
-            data-ad-client="ca-pub-8441432984375470"
-            data-ad-slot="2777106929"></ins> : false
+        adActive ? <Adsense
+            style={{ display: "block" }}
+            client="ca-pub-8441432984375470"
+            slot="2777106929"
+            format="fluid"
+            layout="display"
+            responsive='true'
+        ></Adsense> : false
     );
 
 }
