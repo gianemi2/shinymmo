@@ -11,7 +11,6 @@ const Ads = () => {
             client="ca-pub-8441432984375470"
             slot="2777106929"
             format="fluid"
-            layout="display"
             responsive='true'
         ></Adsense> : false
     );
