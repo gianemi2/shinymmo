@@ -1,31 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import confetti from 'canvas-confetti';
-import { Modal, Button } from 'antd'
-import useLocalStorage from '../Hooks/useLocalStorage'
+import { Button } from 'antd'
 
 function ShinyFound() {
-    const [shinyFoundTimeoutID, setShinyFoundTimeoutID] = useState(0)
-    const [adActive, setAdActive] = useLocalStorage('adActive', false)
-    const [adDenied, setAdDenied] = useLocalStorage('adDenied', false)
-    const [visible, setVisible] = useState(false)
 
-    const handleNoMoreAds = () => {
-        setVisible(false)
-        setAdDenied(true)
-        throwConfetti(false)
-    }
-    const handleNotNow = () => {
-        setVisible(false)
-        throwConfetti(false)
-    }
-    const handleOk = () => {
-        setVisible(false)
-        throwConfetti(false)
-        setAdActive(true)
-        setTimeout(() => window.location.reload(), 5000)
-    }
-
-    const throwConfetti = (showAds = true) => {
+    const throwConfetti = () => {
         for (let index = 0; index < 10; index++) {
             confetti({
                 particleCount: 100,
@@ -38,37 +17,12 @@ function ShinyFound() {
                 }
             });
         }
-        if (showAds && !adDenied && !adActive) {
-            handleAskForAds()
-        }
-    }
-
-    const handleAskForAds = () => {
-        clearTimeout(shinyFoundTimeoutID)
-        const timeout = setTimeout(() => {
-            setVisible(true);
-        }, 5000)
-        setShinyFoundTimeoutID(timeout)
     }
 
     return (
-        <>
-            <Modal
-                visible={visible}
-                title="YAYYYY! You've found your Shiny thanks to this method! ✨"
-                footer={[
-                    <Button key="never" onClick={handleNoMoreAds} danger>NEVER</Button>,
-                    <Button key="notNow" onClick={handleNotNow} type="dashed" danger>Not now</Button>,
-                    <Button key="ok" onClick={handleOk} type="primary">No problem 🙏🏼</Button>,
-                ]}
-                onCancel={handleNotNow}
-            >
-                If you want you can activate ads in this page. I don't like ads, that's why I waited for a great moment to ask you your permission. If you don't want ads, no problem! Happy shiny hunting ❤️
-            </Modal>
-            <Button type="primary" onClick={throwConfetti}>
-                SHINY FOUND!
-            </Button>
-        </>
+        <Button type="primary" onClick={throwConfetti}>
+            SHINY FOUND!
+        </Button>
     )
 }
 
