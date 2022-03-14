@@ -8,19 +8,19 @@ function Customizer(props) {
 
     return (
         <Form layout="vertical">
-            <Space direction={isMobile ? 'vertical' : 'horizontal'}>
-                <Form.Item label="Pokemon in first horde: " style={{ marginBottom: isMobile ? 0 : 24 }}>
-                    <Select style={{ width: 200 }} defaultValue={firstHordeCount} onChange={onFirstHordeCountChange}>
+            <Space className='fullwidthChildren' direction={isMobile ? 'vertical' : 'horizontal'} style={{ width: '100%' }}>
+                <Form.Item label="Pokemon in first horde: " style={{ marginBottom: isMobile ? 0 : 24, width: '100%' }}>
+                    <Select defaultValue={firstHordeCount} onChange={onFirstHordeCountChange}>
                         <Option value="8">8</Option>
                         <Option value="9">9</Option>
                         <Option value="10">10</Option>
                     </Select>
                 </Form.Item>
-                <Form.Item label="Current permutation">
-                    <InputNumber style={{ width: 200 }} min={0} max={maxPermutationsCount} defaultValue={0} onChange={onCurrentPermutationChange} value={currentPermutation} />
+                <Form.Item label="Current permutation" style={{ width: '100%' }}>
+                    <InputNumber style={{ width: "100%" }} min={0} max={maxPermutationsCount} defaultValue={0} onChange={onCurrentPermutationChange} value={currentPermutation} />
                 </Form.Item>
             </Space>
-        </Form>
+        </Form >
     )
 }
 
