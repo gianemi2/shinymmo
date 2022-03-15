@@ -3,8 +3,6 @@ import useLocalStorage from '../Hooks/useLocalStorage'
 import PokemonList from '../Data/pokemon'
 import { Select, Image, Empty } from 'antd'
 
-const { Option } = Select
-
 function Pokemon() {
     const [pokemon, setPokemon] = useLocalStorage('pokemon', false)
     const [selected, setSelected] = useState({ name: '', url: '' })
