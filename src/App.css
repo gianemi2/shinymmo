@@ -11,3 +11,9 @@
 .pokemon-view:hover .base {
   display: block;
 }
+
+.guideline {
+  border-bottom: 1px solid white;
+  padding-bottom: 10px;
+  opacity: 1 !important;
+}

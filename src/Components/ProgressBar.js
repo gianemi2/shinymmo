@@ -1,15 +1,15 @@
 import React from 'react'
-import { Progress } from 'antd'
+import { Progress, Space } from 'antd'
 
-function ProgressBar({ currentPermutationIndex, permutationsCount }) {
+function ProgressBar({ index, maxCount, style }) {
     return (
-        <div style={{ marginBottom: 25 }}>
+        <div style={{ ...style, display: 'flex', justifyContent: 'space-between' }}>
             <Progress
                 strokeColor={{ from: '#00a5e3', to: '#006eab' }}
-                percent={currentPermutationIndex / permutationsCount * 100}
+                percent={(index + 1) / maxCount * 100}
                 showInfo={false}
             />
-            {currentPermutationIndex} / {permutationsCount}
+            <span style={{ flexBasis: 50, textAlign: 'right' }}>{index + 1} / {maxCount}</span>
         </div>
     )
 }
