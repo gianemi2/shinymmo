@@ -9,7 +9,7 @@ function ProgressBar({ index, maxCount, style }) {
                 percent={(index + 1) / maxCount * 100}
                 showInfo={false}
             />
-            <span style={{ flexBasis: 50, textAlign: 'right' }}>{index + 1} / {maxCount}</span>
+            <span style={{ flexBasis: 60, textAlign: 'right' }}>{index + 1} / {maxCount}</span>
         </div>
     )
 }

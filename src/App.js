@@ -54,8 +54,8 @@ function App() {
                         onSaveScumChange={setSaveScum}
                         onPermutationModeChange={permutations => setPermutations(permutations)}
                         onFirstHordeCountChange={count => setFirstHordeCount(count)}
-                        onCurrentPermutationChange={count => setCurrentPermutationIndex(count)}
-                        onCurrentPermutationGroupChange={count => setCurrentPermutationGroupIndex(count)}
+                        onCurrentPermutationChange={count => setCurrentPermutationIndex(count - 1)}
+                        onCurrentPermutationGroupChange={count => setCurrentPermutationGroupIndex(count - 1)}
                     />
                     {
                         saveScum
@@ -72,11 +72,17 @@ function App() {
                     }
                     <Space style={{ marginTop: 15, marginBottom: 15 }} align="center" >
                         {
-                            currentPermutationIndex < permutations.length - 1
+                            currentPermutationIndex !== permutations.length - 1
                                 ? <Button type="dashed" onClick={() => setCurrentPermutationIndex(prev => prev + 1)}>Next Permutation</Button>
-                                : saveScum && currentPermutationGroupIndex <= permutationsGroup.length
-                                    ? <Button type="dashed" onClick={handleNextGroup}>Next Group</Button>
-                                    : <Button danger type="primary" onClick={handleReset}>Reset permutation</Button>
+                                : saveScum && currentPermutationGroupIndex < permutationsGroup.length - 1
+                                    ? <>
+                                        {console.log(`${currentPermutationGroupIndex} < ${permutationsGroup.length}`)}
+                                        <Button type="dashed" onClick={handleNextGroup}>Next Group</Button>
+                                    </>
+                                    : <>
+                                        {console.log(currentPermutationGroupIndex < permutationsGroup.length)}
+                                        <Button danger type="primary" onClick={handleReset}>Reset permutation</Button>
+                                    </>
                         }
                         <ShinyFound></ShinyFound>
                     </Space>

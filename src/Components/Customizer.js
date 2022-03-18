@@ -33,12 +33,12 @@ function Customizer(props) {
                 {
                     isSaveScumAbled
                         ? <Form.Item label="Current permutation group" style={{ marginBottom: isMobile ? 0 : 24, width: '100%' }}>
-                            <InputNumber style={{ width: "100%" }} min={0} max={maxPermutationsGroupCount} defaultValue={0} onChange={onCurrentPermutationGroupChange} value={currentPermutationGroupIndex} />
+                            <InputNumber style={{ width: "100%" }} min={1} max={maxPermutationsGroupCount} defaultValue={1} onChange={onCurrentPermutationGroupChange} value={currentPermutationGroupIndex + 1} />
                         </Form.Item>
                         : false
                 }
                 <Form.Item label="Current permutation" style={{ width: '100%' }}>
-                    <InputNumber style={{ width: "100%" }} min={0} max={maxPermutationsCount} defaultValue={0} onChange={onCurrentPermutationChange} value={currentPermutationIndex} />
+                    <InputNumber style={{ width: "100%" }} min={1} max={maxPermutationsCount} defaultValue={1} onChange={onCurrentPermutationChange} value={currentPermutationIndex + 1} />
                 </Form.Item>
             </Space>
             <Space style={{ marginBottom: 15 }}>
