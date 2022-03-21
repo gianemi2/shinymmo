@@ -1,5 +1,9 @@
 const pokemon = [
     {
+        "name": "Choose your pokemon",
+        "url": "/assets/shiny/meme.jpg"
+    },
+    {
         "name": "Rowlet",
         "url": "/assets/shiny/rowlet.png"
     },

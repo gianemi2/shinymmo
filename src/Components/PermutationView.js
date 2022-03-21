@@ -27,12 +27,12 @@ const tagData = {
 
 const createPermutationView = (permutation, status) => {
     return (
-        <Space className={status === "Guideline" ? 'guideline' : false} style={{ opacity: status === 'Current' ? 1 : 0.2, justifyContent: 'flex-end', width: '100%' }} size={isMobile ? '2px' : 'small'} data-space={status} >
+        <Space className={status === "Guideline" ? 'guideline' : false} style={{ opacity: status === 'Current' ? 1 : 0.2, justifyContent: 'flex-end', width: '100%', overflowX: 'scroll' }} size={isMobile ? '2px' : 'small'} data-space={status} >
             {
                 permutation.map((item, index) => {
                     return (
                         <Tooltip key={`${item}-${index}`} title={tagData[item].hints}>
-                            <Tag style={{ minWidth: isMobile ? '0' : '32px', textAlign: "center" }} color={tagData[item].color}>{item}</Tag>
+                            <Tag style={{ minWidth: 32, textAlign: "center" }} color={tagData[item].color}>{item}</Tag>
                         </Tooltip>
                     )
                 })

@@ -46,8 +46,8 @@ function Customizer(props) {
                     unCheckedChildren={<CloseOutlined />}
                     defaultChecked={isSaveScumAbled}
                 />
-                Backup mode permutations
-                <Button href="https://twitter.com/fs1gang/status/1505912654065508358" shape="circle" icon={<InfoOutlined />} target="_blank" />
+                Backup mode permutations (fastest)
+                <Button href="https://twitter.com/fs1gang/status/1505912654065508358" shape="circle" type="primary" icon={<InfoOutlined />} target="_blank" size='small' />
             </Space>
         </Form >
     )

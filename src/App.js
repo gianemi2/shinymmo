@@ -84,7 +84,7 @@ function App() {
                                         <Button danger type="primary" onClick={handleReset}>Reset permutation</Button>
                                     </>
                         }
-                        <ShinyFound></ShinyFound>
+                        <ShinyFound onShinyFound={handleReset}></ShinyFound>
                     </Space>
                 </div>
             </div>
