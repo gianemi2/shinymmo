@@ -1,9 +1,7 @@
-import React, { useEffect } from 'react'
-import { Select, InputNumber, Space, Form, Switch } from 'antd'
+import React from 'react'
+import { Select, InputNumber, Space, Form, Switch, Button } from 'antd'
 import { isMobile } from 'react-device-detect';
-import useLocalStorage from '../Hooks/useLocalStorage';
-import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
-import { variables, saveScumVariables } from '../Data';
+import { CheckOutlined, CloseOutlined, InfoOutlined } from '@ant-design/icons';
 const { Option } = Select
 
 function Customizer(props) {
@@ -48,7 +46,8 @@ function Customizer(props) {
                     unCheckedChildren={<CloseOutlined />}
                     defaultChecked={isSaveScumAbled}
                 />
-                Save scum permutations
+                Backup mode permutations
+                <Button href="https://twitter.com/fs1gang/status/1505912654065508358" shape="circle" icon={<InfoOutlined />} target="_blank" />
             </Space>
         </Form >
     )
