@@ -18,27 +18,35 @@ const tagData = {
     K3: {
         color: 'magenta',
         hints: "Defeat it, if you have more K3 in this row defeat them in the same battle."
+    },
+    S: {
+        color: 'geekblue',
+        hints: "Now, save your game. You'll reload a new group using the save scum method. "
     }
 }
 
-const createPermutationView = (permutation, status) => (
-    <Space style={status === 'Current' ? { opacity: 1 } : { opacity: 0.2 }} size={isMobile ? '2px' : 'small'}>
-        {!isMobile ? <div style={{ minWidth: '60px' }}>{status}</div> : false}
-        {permutation.map((item, index) => {
-            return (
-                <Tooltip key={`${item}-${index}`} title={tagData[item].hints}>
-                    <Tag style={{ minWidth: isMobile ? '0' : '30px', textAlign: "center" }} color={tagData[item].color}>{item}</Tag>
-                </Tooltip>
-            )
-        })}
-    </Space>
-)
+const createPermutationView = (permutation, status) => {
+    return (
+        <Space className={status === "Guideline" ? 'guideline' : false} style={{ opacity: status === 'Current' ? 1 : 0.2, justifyContent: 'flex-end', width: '100%' }} size={isMobile ? '2px' : 'small'} data-space={status} >
+            {
+                permutation.map((item, index) => {
+                    return (
+                        <Tooltip key={`${item}-${index}`} title={tagData[item].hints}>
+                            <Tag style={{ minWidth: isMobile ? '0' : '32px', textAlign: "center" }} color={tagData[item].color}>{item}</Tag>
+                        </Tooltip>
+                    )
+                })
+            }
+        </Space >
+    )
+}
 
 function PermutationView({ permutations }) {
-    const { previous, current, next } = permutations
+    const { guideline, previous, current, next } = permutations
     return (
         <div style={{ marginBottom: 25 }}>
             <Space direction='vertical'>
+                {guideline ? createPermutationView(guideline, 'Guideline') : false}
                 {previous.length ? createPermutationView(previous, 'Previous') : false}
                 {current.length ? createPermutationView(current, 'Current') : false}
                 {next.length ? createPermutationView(next, 'Next') : false}

@@ -1,4 +1,4 @@
-const variables = [
+const defaultCombinations = [
     {
         count: 8,
         permutations: [
@@ -183,4 +183,4 @@ const variables = [
         ]
     }
 ]
-export default variables
+export default defaultCombinations
